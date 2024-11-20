@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+            color: yellowgreen;
+        }
+        .de-active{
+            color: red;
+        }
+    </style>
+    <script th:inline="javascript">
+        const rootMenu = /*[[${menus}]]*/ {};
+        console.table(rootMenu);
+    </script>
+</head>
+<body>
+    <ul>
+        <li th:each="menu:${menus}">
+            <span th:text="${menu.getName()}"></span>
+            <ul>
+                <li th:each="subMenu: ${ menu.getMenus()}">
+                    <label>
+                        <span th:class="${subMenu.getIsActive() ? 'active' : 'de-active'}" th:text="${subMenu.getName()}"></span>
+                        <input type="checkbox" th:checked="${subMenu.getIsActive()}">
+                    </label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,2 @@
+use toast;
+show tables;

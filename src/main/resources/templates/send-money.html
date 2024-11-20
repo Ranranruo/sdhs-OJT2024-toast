@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" th:href="@{/styles/login.css}">
+  <link rel="stylesheet" th:href="@{/styles/normalize.css}">
+<!--  <link rel="stylesheet" href="../static/styles/normalize.css">-->
+<!--  <link rel="stylesheet" href="../static/styles/login.css">-->
+</head>
+<body>
+<header></header>
+<main>
+  <form action="/login" method="post">
+    <div class="title">
+      <img src="https://i.pinimg.com/564x/2e/d6/38/2ed6385441758f577226545fb39a2d1a.jpg" alt="">
+      <h1>이체하기</h1>
+    </div>
+    <div class="content">
+      <div class="options">
+        <div class="option">
+          <label for="id">계좌번호</label>
+          <input id="id" type="text" name="id" placeholder="계좌번호" required autofocus>
+        </div>
+        <div class="option">
+          <label for="password">보내실 금액</label>
+          <input id="password" type="number" name="password" placeholder="보내실 금액" required>
+        </div>
+        <div class="option">
+          <label for="memo">메모</label>
+          <input id="memo" type="text" name="password" placeholder="메모" required>
+        </div>
+      </div>
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+      <input class="submit" type="submit" value="이체하기">
+    </div>
+  </form>
+</main>
+<footer></footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+            color: inherit;
+        }
+        a{
+            display: flex; justify-content: center; align-items: center;
+            width: 120px; height: 50px;
+            color: white;
+        }
+        .container{
+            background-color: #d75b5b;
+            height: 50px;
+            overflow: hidden;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+            transition: .3s;
+        }
+        .container:hover{
+            height: 250px;
+        }
+        .container > .main-menus{
+            display: flex;
+        }
+        .main-menu:hover{
+            background-color: #d34747;
+        }
+        .main-menu a:hover{
+            background-color: #cb3232;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="main-menus">
+        <li class="main-menu" th:each="mainMenu: ${rootMenu}">
+            <a th:href="${'/'+mainMenu.getName()}" th:text="${mainMenu.getName()}"></a>
+            <ul class="sub-menus">
+                <li class="sub-menu" th:each="subMenu: ${mainMenu.getMenus()}">
+                    <a th:href="${'/' + mainMenu.getName() + '/' + subMenu.getName()}" th:text="${subMenu.getName()}"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script th:inline="javascript">
+    const rootMenu = /*[[${rootMenu}]]*/ {};
+    console.table(rootMenu);
+</script>
+</body>
+
+</html>

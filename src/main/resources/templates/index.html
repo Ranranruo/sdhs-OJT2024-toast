@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+<header>
+    <img src="https://i.pinimg.com/564x/2e/d6/38/2ed6385441758f577226545fb39a2d1a.jpg" alt="">
+    <h1>TOAST</h1>
+</header>
+<div class="banner" th:text="|안녕하세요, ${user.getName()}님|"></div>
+<main>
+    <ul>
+        <h2>통장 정보</h2>
+        <li th:each="bankAccount : ${user.bankAccounts}" th:with="bankBook = ${bankAccount.bankBook}">
+            <h1 th:text="|${bankAccount.alias}(${bankBook.name})|"></h1>
+            <p th:text="|통장 금리: ${bankBook.interestRate}|"></p>
+            <p th:text="|계좌 번호: ${bankAccount.number}|"></p>
+            <p th:text="|계좌 개설일: ${bankAccount.createDateTime}|"></p>
+            <p th:text="|계좌 금액: ${bankAccount.amount}원|"></p>
+            <ol>
+                <li th:each="bankAccountHistory: ${bankAccount.bankAccountHistories}"></li>
+            </ol>
+            <button class="send-money" th:value="${'/send-money/'+ bankAccount.number}">이체</button>
+        </li>
+        <button>더 보기</button>
+    </ul>
+</main>
+</body>
+<script>
+    document.querySelectorAll(".send-money").forEach(el=>el.addEventListener("click", (e)=>{
+        window.open(e.target.value, '_blank', "resizeable=no, location=no toolbar=no,scrollbars=no,resizable=yes,status=no,menubar=no,width=400, height=600, top=0,left=0")
+    }))
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/register.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+<!--    <link rel="stylesheet" href="../static/styles/normalize.css">-->
+<!--    <link rel="stylesheet" href="../static/styles/register.css">-->
+    <script src="scripts/utils/lib.js"></script>
+    <script src="scripts/utils/type.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+    <form id="register-form" action="">
+        <div class="title">
+            <img src="https://i.pinimg.com/564x/2e/d6/38/2ed6385441758f577226545fb39a2d1a.jpg" alt="">
+            <h1>회원가입 페이지</h1>
+        </div>
+        <div class="content">
+            <div class="options">
+                <div class="option">
+                    <label for="id">Id</label>
+                    <input id="id" type="text" name="id" placeholder="id" required autofocus>
+                </div>
+                <div class="option">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="password" required>
+                </div>
+                <div class="option">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="name" placeholder="name" required>
+                </div>
+                <div class="option">
+                    <label for="identity">Identity</label>
+                    <input id="identity" type="text" name="identity" placeholder="identity" required>
+                </div>
+                <div class="option">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" name="email" placeholder="email" required>
+                </div>
+                <div class="option">
+                    <label for="contact">Contact</label>
+                    <input id="contact" type="text" name="contact" placeholder="contact" required>
+                </div>
+                <div class="option">
+                    <label for="address">Address</label>
+                    <input id="address" type="text" name="address" placeholder="address" required>
+                </div>
+            </div>
+            <input class="submit" type="submit" value="회원가입">
+        </div>
+    </form>
+</main>
+<footer></footer>
+<script type="module" src="/scripts/register.js"></script>
+</body>
+</html>
